@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BudgetRequest {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  whatsapp    String
+  service     String
+  description String
+  status      String   @default("PENDENTE")
+  createdAt   DateTime @default(now())
+}
